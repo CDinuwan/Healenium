@@ -51,6 +51,12 @@
       <artifactId>webdrivermanager</artifactId>
       <version>5.1.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.epam.healenium/healenium-web -->
+    <dependency>
+      <groupId>com.epam.healenium</groupId>
+      <artifactId>healenium-web</artifactId>
+      <version>3.2.4</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -97,5 +103,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

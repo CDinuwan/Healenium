@@ -1,5 +1,6 @@
 package org.example;
 
+import com.epam.healenium.SelfHealingDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.Assert;
 
 public class healTest {
-    WebDriver driver ;
+    static private SelfHealingDriver driver ;
 
     @Test
     public void demoTest() {
@@ -27,7 +28,8 @@ public class healTest {
     public void beforeMethod() {
         System.out.println("Starting Test On Chrome Browser");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriver delegate = new ChromeDriver();
+        driver = SelfHealingDriver.create(delegate);
     }
 
     @AfterMethod
